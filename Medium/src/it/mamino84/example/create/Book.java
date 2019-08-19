@@ -1,4 +1,4 @@
-package it.marino.example.create;
+package it.mamino84.example.create;
 
 public class Book {
 

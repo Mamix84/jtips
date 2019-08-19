@@ -1,4 +1,4 @@
-package it.marino.example.create;
+package it.mamino84.example.create;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

@@ -1,4 +1,4 @@
-package it.marino.example.create;
+package it.mamino84.example.create;
 
 @SuppressWarnings("unused")
 public class Test {
