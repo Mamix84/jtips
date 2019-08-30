@@ -3,6 +3,8 @@ package it.mamino84.example.create;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import it.mamino84.example.model.Book;
+
 @SuppressWarnings("all")
 public class TestReflection {
 	

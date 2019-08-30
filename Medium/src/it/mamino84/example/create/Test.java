@@ -1,5 +1,7 @@
 package it.mamino84.example.create;
 
+import it.mamino84.example.model.Book;
+
 @SuppressWarnings("unused")
 public class Test {
 

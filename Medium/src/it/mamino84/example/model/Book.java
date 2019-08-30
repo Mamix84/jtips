@@ -1,4 +1,4 @@
-package it.mamino84.example.create;
+package it.mamino84.example.model;
 
 public class Book {
 
@@ -39,6 +39,10 @@ public class Book {
 
 	public void setPageNumber(int pageNumber) {
 		this.pageNumber = pageNumber;
+	}
+
+	public String toString() {
+		return "Title: " + title + " - Author: " + author + " - Page number: " + pageNumber;
 	}
 
 }
