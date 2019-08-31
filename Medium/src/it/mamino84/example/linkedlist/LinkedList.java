@@ -4,13 +4,11 @@ public class LinkedList {
 
 	private Node first;
 	private Node last;
-	private int size;
 
 	// CONSTRUCTOR
 	public LinkedList() {
 		first = null;
 		last = null;
-		size = 0;
 	}
 
 	// GETTER-SETTER
@@ -30,20 +28,12 @@ public class LinkedList {
 		this.last = last;
 	}
 
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
-
 	// BUSINESS LOGIC
 	public void addFirst(Object value) {
 		Node node = new Node();
 		node.setValue(value);
 
-		if (size == 0) {
+		if (getSize() == 0) {
 			this.first = node;
 			this.last = node;
 		} else {
@@ -51,26 +41,23 @@ public class LinkedList {
 			first = node;
 			node.setPointer(temp);
 		}
-		size++;
 	}
 
 	public void addLast(Object value) {
 		Node node = new Node();
 		node.setValue(value);
 
-		if (size == 0) {
+		if (getSize() == 0) {
 			this.last = node;
 			this.first = node;
 		} else {
 			this.last.setPointer(node);
 			this.last = node;
 		}
-		size++;
 	}
 
 	public void removeFirst() {
 		first = first.getPointer();
-		size--;
 	}
 
 	public void removeLast() {
@@ -87,7 +74,16 @@ public class LinkedList {
 			}
 			node = node.getPointer();
 		}
-		size--;
+	}
+
+	public int getSize() {
+		int size = 0;
+		Node node = first;
+		while (node != null) {
+			node = node.getPointer();
+			size++;
+		}
+		return size;
 	}
 
 }
