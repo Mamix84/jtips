@@ -48,7 +48,11 @@ public class Test {
 
 		list.addLast("C");
 
-		list.removeFirst();
+		try {
+			list.removeFirst();
+		} catch (NoMoreElementToRemoveException e) {
+			e.printStackTrace();
+		}
 
 		System.out.println(list.getSize());
 	}
@@ -62,7 +66,11 @@ public class Test {
 
 		list.addLast("C");
 
-		list.removeLast();
+		try {
+			list.removeLast();
+		} catch (NoMoreElementToRemoveException e) {
+			e.printStackTrace();
+		}
 
 		System.out.println(list.getSize());
 	}
@@ -76,9 +84,8 @@ public class Test {
 
 		list.addLast("C");
 
-		ListIterator iterator = new ListIterator(list);
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next().toString());
+		for (Object value : list) {
+			System.out.println(value.toString());
 		}
 	}
 

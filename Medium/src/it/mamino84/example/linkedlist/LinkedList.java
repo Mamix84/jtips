@@ -1,6 +1,8 @@
 package it.mamino84.example.linkedlist;
 
-public class LinkedList {
+import java.util.Iterator;
+
+public class LinkedList implements Iterable<Object> {
 
 	private Node first;
 	private Node last;
@@ -11,24 +13,16 @@ public class LinkedList {
 		last = null;
 	}
 
-	// GETTER-SETTER
+	// GETTER/SETTER
 	public Node getFirst() {
 		return first;
-	}
-
-	public void setFirst(Node first) {
-		this.first = first;
 	}
 
 	public Node getLast() {
 		return last;
 	}
 
-	public void setLast(Node last) {
-		this.last = last;
-	}
-
-	// BUSINESS LOGIC
+	// BUSINESS METHOD
 	public void addFirst(Object value) {
 		Node node = new Node();
 		node.setValue(value);
@@ -56,11 +50,17 @@ public class LinkedList {
 		}
 	}
 
-	public void removeFirst() {
+	public void removeFirst() throws NoMoreElementToRemoveException {
+		if (getSize() == 0)
+			throw new NoMoreElementToRemoveException();
+
 		first = first.getPointer();
 	}
 
-	public void removeLast() {
+	public void removeLast() throws NoMoreElementToRemoveException {
+		if (getSize() == 0)
+			throw new NoMoreElementToRemoveException();
+
 		Node node = first;
 		while (node != null) {
 			if (node.getPointer() == null && node == first) {
@@ -84,6 +84,31 @@ public class LinkedList {
 			size++;
 		}
 		return size;
+	}
+
+	@Override
+	public Iterator<Object> iterator() {
+		Iterator<Object> it = new Iterator<Object>() {
+
+			private Node cursor = getFirst();
+
+			@Override
+			public boolean hasNext() {
+				return cursor != null;
+			}
+
+			@Override
+			public Object next() {
+				if (cursor == null)
+					return null;
+
+				Object value = cursor.getValue();
+				cursor = cursor.getPointer();
+				return value;
+			}
+
+		};
+		return it;
 	}
 
 }
