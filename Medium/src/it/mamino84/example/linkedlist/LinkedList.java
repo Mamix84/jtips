@@ -2,9 +2,15 @@ package it.mamino84.example.linkedlist;
 
 import java.util.Iterator;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class LinkedList implements Iterable<Object> {
 
+	@XmlElement
 	private Node first;
+	@XmlElement
 	private Node last;
 
 	// CONSTRUCTOR
