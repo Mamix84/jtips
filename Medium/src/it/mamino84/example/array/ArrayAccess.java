@@ -11,7 +11,9 @@ public class ArrayAccess {
 		
 		int lastElem = fiboSeq[6]; //21
 		
-		int outOfBound = fiboSeq[10]; //ArrayIndexOutOfBoundsException		
+		int outOfBound = fiboSeq[10]; //ArrayIndexOutOfBoundsException	
+		
+		int midElem = fiboSeq[3];
 		
 	}
 }
